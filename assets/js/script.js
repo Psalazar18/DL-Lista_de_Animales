@@ -72,18 +72,17 @@ let instancias = (event)=> {
     let tipo = document.getElementById('tipo').value;
     let enfermedad = document.getElementById('enfermedad').value;
 
-    let perro = new Perro(name, direccion, telefono, mascota, tipo, enfermedad);
-    // if (tipo == 'perro') {
-    // } else if (tipo == 'gato') {
-    // 	let gato = new Gato(name, direccion, telefono, mascota, tipo, enfermedad);
-    // } else {
-    // 	let conejo = new Conejo(name, direccion, telefono, mascota, tipo, enfermedad);
-    // }
-    let dueno1 = new Propietario(name,direccion,telefono);
-    console.log(dueno1.datosPropietario());
-    console.log(perro.datosAnimal());
-    console.log(perro.enfermedad);
-    document.getElementById('resultado').innerHTML = dueno1.datosPropietario() + perro.datosAnimal() + ", y la enfermedad es: " + perro.enfermedad;
+    let mascota1 = new Perro(propietario, direccion, telefono, nombreMascota, tipo, enfermedad);
+
+    let dueno1 = new Propietario(propietario,direccion,telefono);
+
+    let div = document.getElementById('resultado');
+    let li1 = document.createElement('li');
+    let li2 = document.createElement('li');
+    li1.innerHTML = dueno1.datosPropietario();
+    li2.innerHTML = mascota1.datosAnimal() + ", y la enfermedad es: " + mascota1.enfermedad;
+    div.appendChild(li1);
+    div.appendChild(li2);
 }
 
 formulario.addEventListener('submit', instancias);
